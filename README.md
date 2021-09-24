@@ -12,7 +12,7 @@ Additional description of the project and its features.
 
 ## Project Overview Video
 
-[Watch Here]()
+[Watch Here](https://www.loom.com/share/1521de36139a491b9f2fda2ec9e2415c)
 
 ## Built With
 
