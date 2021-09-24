@@ -1,24 +1,17 @@
 /* eslint-disable max-len */
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Col, Row } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
-import { getCoins } from '../redux/cryptodata/cryptodata';
+// import { getCoins } from '../redux/cryptodata/cryptodata';
 import Filter from './Filter';
 import BlueBTC from './BlueBTC.png';
 
 export default function Home() {
   const [filter, setFilter] = useState('');
-  const dispatch = useDispatch();
   const coins = useSelector((state) => state);
-  // console.log(cryptoData);
-  useEffect(() => {
-    if (coins.length === 0) {
-      dispatch(getCoins());
-    }
-  }, []);
 
   return (
     <div className="pt-3 bg-blue-light">
