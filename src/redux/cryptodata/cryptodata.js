@@ -18,10 +18,11 @@ export const getCoins = () => async (dispatch) => {
 };
 
 const reducer = (state = initialState, action) => {
-  // let newState;
+  let newState;
   switch (action.type) {
     case GET_COINS:
-      return [...action.payload];
+      newState = [...action.payload];
+      return newState;
 
     default:
       return state;
