@@ -75,7 +75,9 @@ export default function Home() {
             </Col>
           </LinkContainer>
         ))}
-        ;
+      </Row>
+      <Row className="text-white justify-content-center">
+        Powered by Nomics: https://nomics.com
       </Row>
     </div>
   );
