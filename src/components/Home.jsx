@@ -1,11 +1,9 @@
-/* eslint-disable max-len */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Col, Row } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
-// import { getCoins } from '../redux/cryptodata/cryptodata';
 import Filter from './Filter';
 import BlueBTC from './BlueBTC.png';
 
@@ -41,40 +39,42 @@ export default function Home() {
             <Filter setFilter={setFilter} />
           </Col>
         </Row>
-        { coins.filter(({ name }) => name.toLowerCase().startsWith(filter.toLowerCase())).map((coin, index) => (
-          <LinkContainer key={coin.id} to={`/details/${coin.id}`}>
-            <Col
-              xs={6}
-              sm={6}
-              md={3}
-              className={`
-              d-flex flex-column justify-content-between
-              align-items-end
-              ${([1, 0, 0, 1][index % 4]) ? 'bg-blue-dark' : 'bg-blue-light'}
-            `}
-            >
-              <FontAwesomeIcon icon={faArrowAltCircleRight} className="text-white mt-1 mb-4 h5" />
-              <span
-                className="d-flex flex-column align-items-end text-white mt-4"
-                style={{ cursor: 'pointer' }}
+        { coins
+          .filter(({ name }) => name.toLowerCase().startsWith(filter.toLowerCase()))
+          .map((coin, index) => (
+            <LinkContainer key={coin.id} to={`/details/${coin.id}`}>
+              <Col
+                xs={6}
+                sm={6}
+                md={3}
+                className={`
+                d-flex flex-column justify-content-between
+                align-items-end
+                ${([1, 0, 0, 1][index % 4]) ? 'bg-blue-dark' : 'bg-blue-light'}
+              `}
               >
-                <img
-                  src={coin.logo_url}
-                  alt={coin.currency}
-                  height="50px"
-                />
-                <h5 className="d-inline-block m-0 text-end fw-bold">{coin.name.toUpperCase()}</h5>
-                <p>
-                  {' '}
-                  $
-                  {
-                  Number(coin.price).toLocaleString()
-                }
-                </p>
-              </span>
-            </Col>
-          </LinkContainer>
-        ))}
+                <FontAwesomeIcon icon={faArrowAltCircleRight} className="text-white mt-1 mb-4 h5" />
+                <span
+                  className="d-flex flex-column align-items-end text-white mt-4"
+                  style={{ cursor: 'pointer' }}
+                >
+                  <img
+                    src={coin.logo_url}
+                    alt={coin.currency}
+                    height="50px"
+                  />
+                  <h5 className="d-inline-block m-0 text-end fw-bold">{coin.name.toUpperCase()}</h5>
+                  <p>
+                    {' '}
+                    $
+                    {
+                    Number(coin.price).toLocaleString()
+                  }
+                  </p>
+                </span>
+              </Col>
+            </LinkContainer>
+          ))}
       </Row>
       <Row className="text-white justify-content-center">
         Powered by Nomics: https://nomics.com
