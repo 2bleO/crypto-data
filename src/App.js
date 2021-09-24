@@ -34,6 +34,9 @@ function App() {
           </Route>
         </Switch>
       </main>
+      <footer>
+        <a className="text-white justify-content-center" href="https://nomics.com">Crypto Market Cap & Pricing Data Provided By Nomics</a>
+      </footer>
     </>
   );
 }
